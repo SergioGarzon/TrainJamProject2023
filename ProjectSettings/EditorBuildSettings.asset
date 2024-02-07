@@ -7,8 +7,17 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 9eca031cf0e5288479a9dcd44c1614be
   - enabled: 1
-    path: Assets/Scenes/AnimalsCage.unity
-    guid: aee6e6b8319b08840804c4342397372d
+    path: Assets/Scenes/SceneCageAnimals.unity
+    guid: f81407595e1038a4ab3e6cc3486a5a99
+  - enabled: 1
+    path: Assets/Scenes/CageParrotScene.unity
+    guid: cc1d031bcab080f409dea589629da692
+  - enabled: 1
+    path: Assets/Scenes/MageScene.unity
+    guid: 6113dd752492cf645b85e223f33dc26a
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 22e573c6dc635bb4091f6d92764bd30a
   m_configObjects: {}

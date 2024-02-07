@@ -12,6 +12,10 @@ public class ChangeScene : MonoBehaviour
 
     public void exitGame()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

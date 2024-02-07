@@ -9,30 +9,43 @@ public class MovementPlayer : MonoBehaviour
 
     private Vector2 playerPosition;
 
+    public GameObject objSpriteMovement;
+    private Animator animationSprite;
+
 
     private void Start() {
-
-
+        if(objSpriteMovement != null) 
+            animationSprite = objSpriteMovement.GetComponent<Animator>();
     }
 
 
     private void Update()
     {
-            float movementX = Input.GetAxisRaw("Horizontal");
-            float movementY = Input.GetAxisRaw("Vertical");
+        float movementX = Input.GetAxisRaw("Horizontal");
+        float movementY = Input.GetAxisRaw("Vertical");
 
-            playerPosition = transform.position;
+        if (objSpriteMovement != null)
+        {
+            switch (movementX)
+            {
+                case 1: animationSprite.SetInteger("MovementElephant", 1); break;
+                case -1: animationSprite.SetInteger("MovementElephant", 2); break;
+            }
 
-            playerPosition = playerPosition + new Vector2(movementX, movementY) * forceMovement * Time.deltaTime;
+            switch (movementY)
+            {
+                case 1: animationSprite.SetInteger("MovementElephant", 3); break;
+                case -1: animationSprite.SetInteger("MovementElephant", 0); break;
+            }
+        }
 
-            transform.position = playerPosition;
+        playerPosition = transform.position;
 
-            StartCoroutine(MovementGravity());
+        playerPosition = playerPosition + new Vector2(movementX, movementY) * forceMovement * Time.deltaTime;
 
-            //Debug.Log("Eje x: " + transform.position.x + ", eje y: " + transform.position.y);
+        transform.position = playerPosition;
 
-        
-
+        StartCoroutine(MovementGravity());
     }
 
     IEnumerator MovementGravity()
